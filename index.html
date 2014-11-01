@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CodePen</title>
+    <script src="jquery-2.1.1.min.js"></script>
+    <script src="jquery-ui.js"></script>
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="jquery-ui.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="wrapper">
+        
+        <div class="header">
+            
+            <div class="title float-left">
+                Runder
+            </div>
+
+            <div class="selectors">
+                <ul>
+                    <li class="toggle selected">HTML</li>
+                    <li class="toggle">CSS</li>
+                    <li class="toggle">JS</li>
+                    <li class="toggle selected">Result</li>
+                </ul>
+            </div>
+
+            <div class="run float-right">
+                <button class="smooth-transition">Build</button>
+            </div>
+
+        </div>
+
+        <!-- <div class="clearfix"></div> -->
+
+        <div class="codeContainer float-left" id="HTMLContainer">
+            
+            <div class="codeContainerTitle">
+                <span>HTML</span>
+            </div>
+
+            <div class="codeContainerCode">
+                <textarea name="htmlCode" id="htmlCode"></textarea>
+            </div>
+
+        </div>
+
+        <div class="codeContainer float-left" id="CSSContainer">
+            
+            <div class="codeContainerTitle">
+                <span>CSS</span>
+            </div>
+
+            <div class="codeContainerCode">
+                <textarea name="cssCode" id="cssCode"></textarea>
+            </div>
+
+        </div>
+
+        <div class="codeContainer float-left" id="JSContainer">
+            
+            <div class="codeContainerTitle">
+                <span>JS</span>
+            </div>
+
+            <div class="codeContainerCode">
+                <textarea name="jsCode" id="jsCode"></textarea>
+            </div>
+
+        </div>
+
+        <div class="codeContainer float-left" id="ResultContainer">
+            
+            <div class="codeContainerTitle">
+                <span>Result</span>
+            </div>
+
+            <div class="codeContainerCode">
+                <iframe id="result"></iframe>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
