@@ -29,11 +29,19 @@ $(".toggle").click(function() {
 }
 });
 
+    caja.initialize({
+        cajaServer: "https://caja.appspot.com/"
+    });
+
+
 $(".run").click(function() {
-    $("#result").contents().find("html").html("<style>" + $("#cssCode").val() + "</style>" + $("#htmlCode").val());
 
+    $("#result").empty();
 
-    //TODO
-    document.getElementById("result").contentWindow.eval($(".jsCode").val());
-    
+    caja.load(document.getElementById('result'), undefined, function(frame) {
+        frame.code("http://siawyoung.github.io/runder",
+                   'text/html', "<style>" + $("#cssCode").val() + "</style>" + $("#htmlCode").val() + "<script type='text/javascript'>" + $("#jsCode").val() + "</script>")
+             .run();
+      });
+
 });
