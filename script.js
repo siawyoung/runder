@@ -74,7 +74,7 @@ $(".toggle").click(function() {
 
 /* Keypress Behavior for Editor Toggle */
 
-down = {'13': null, '49': null, '50': null, 51: null, 52: null, 83: null};
+down = {'13': null, '49': null, '50': null, 51: null, 52: null, 81: null, '82': null, '83': null, '69': null};
 $(document).keydown(function(event) {
     console.log(down);
     // Check if any editors are in focus
@@ -83,7 +83,7 @@ $(document).keydown(function(event) {
     var keycode = (event.keyCode ? event.keyCode : event.which);
 
     // bind '1' to HTML
-    if(keycode == '49' && !anyEditorsFocused){
+    if (keycode == '49' && !anyEditorsFocused){
         if (down['49'] === null) { // first press
             $('#htmlToggle').click();
             down['49'] = true; // record that the key's down
@@ -91,7 +91,7 @@ $(document).keydown(function(event) {
     }
 
     // bind '2' to CSS
-    if(keycode == '50' && !anyEditorsFocused){
+    if (keycode == '50' && !anyEditorsFocused){
         if (down['50'] === null) { // first press
             $('#cssToggle').click();
             down['50'] = true; // record that the key's down
@@ -99,7 +99,7 @@ $(document).keydown(function(event) {
     }
 
     // bind '3' to JS
-    if(keycode == '51' && !anyEditorsFocused){
+    if (keycode == '51' && !anyEditorsFocused){
         if (down['51'] === null) { // first press
             $('#jsToggle').click();
             down['51'] = true; // record that the key's down
@@ -107,14 +107,55 @@ $(document).keydown(function(event) {
     }
 
     // bind '4' to result
-    if(keycode == '52' && !anyEditorsFocused){
+    if (keycode == '52' && !anyEditorsFocused){
         if (down['52'] === null) { // first press
             $('#resultToggle').click();
             down['52'] = true; // record that the key's down
       }
-    }    
+    }
 
-    if ((event.metaKey || event.ctrlKey) && (keycode == '13' || keycode =='83')) {
+    // bind 'q' to htmlEditor focus   
+
+    if (keycode == '81' && !anyEditorsFocused){
+        if (down['81'] === null) { // first press
+            event.preventDefault();
+            htmlEditor.focus();
+            down['81'] = true; // record that the key's down
+      }
+    }
+
+    // bind 'w' to cssEditor focus   
+
+    if (keycode == '87' && !anyEditorsFocused){
+        if (down['87'] === null) { // first press
+            event.preventDefault();
+            cssEditor.focus();
+            down['87'] = true; // record that the key's down
+      }
+    }
+
+    // bind 'e' to htmlEditor focus   
+
+    if (keycode == '69' && !anyEditorsFocused){
+        if (down['69'] === null) { // first press
+            event.preventDefault();
+            jsEditor.focus();
+            down['69'] = true; // record that the key's down
+      }
+    }
+
+    // bind 'r' to run
+
+    if (keycode == '82' && !anyEditorsFocused){
+        if (down['82'] === null) { // first press
+            event.preventDefault();
+            $(".run").click();
+            down['82'] = true; // record that the key's down
+      }
+    }
+
+    // bind cmd/ctrl + return to run (global)
+    if ((event.metaKey || event.ctrlKey) && (keycode == '13')) {
         event.preventDefault();
         if (down['13'] === null || down['83'] === null) { // first press
             $(".run").click();
@@ -126,7 +167,7 @@ $(document).keydown(function(event) {
         }
     }
 
-    // escape to unfocus
+    // bind escape to unfocus (global)
     if (keycode == '27') {
         $("textarea").blur();
     }
@@ -145,7 +186,7 @@ $(".run").click(function() {
      $("#result").empty();
      $('.run button').animate({
         backgroundColor: "#f1c40f"
-    }, 300).delay(300);
+    }, 150).delay(200);
 
 
      //TODO: Change regex to account for commented out tags
