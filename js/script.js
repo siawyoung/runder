@@ -74,7 +74,7 @@ $(".toggle").click(function() {
 
 /* Keypress Behavior for Editor Toggle */
 
-down = {'13': null, '49': null, '50': null, 51: null, 52: null, 81: null, '82': null, '83': null, '69': null};
+down = {'13': null, '49': null, '50': null, 51: null, 52: null, 81: null, '82': null, '69': null};
 $(document).keydown(function(event) {
     console.log(down);
     // Check if any editors are in focus
@@ -157,13 +157,9 @@ $(document).keydown(function(event) {
     // bind cmd/ctrl + return to run (global)
     if ((event.metaKey || event.ctrlKey) && (keycode == '13')) {
         event.preventDefault();
-        if (down['13'] === null || down['83'] === null) { // first press
+        if (down['13'] === null) { // first press
             $(".run").click();
-            if (keycode == '13') {
-                down['13'] = true;
-            } else {
-                down['83'] = true;
-            }
+            down['13'] = true;
         }
     }
 
