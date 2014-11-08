@@ -6,8 +6,9 @@
     <script src="jquery-2.1.1.min.js"></script>
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="style.css">
+    <!-- <script src="require.js"></script> -->
     <script type="text/javascript" src="https://caja.appspot.com/caja.js"></script>
-    <script src="codepress.js"></script>
+    <script type="text/javascript" src="src-min/ace.js"></script>
 </head>
 <body>
     
@@ -17,19 +18,20 @@
             
             <div class="title float-left">
                 Runder
+                <img src="runder-logo-1.svg" alt="">
             </div>
 
             <div class="selectors">
                 <ul>
-                    <li class="toggle selected">HTML</li>
-                    <li class="toggle">CSS</li>
-                    <li class="toggle">JS</li>
-                    <li class="toggle selected">Result</li>
+                    <li id="htmlToggle" class="toggle selected">HTML</li>
+                    <li id="cssToggle" class="toggle">CSS</li>
+                    <li id="jsToggle"class="toggle">JS</li>
+                    <li id="resultToggle" class="toggle selected">Result</li>
                 </ul>
             </div>
 
             <div class="run float-right">
-                <button class="smooth-transition">Build</button>
+                <button class="smooth-transition">Build ⌘↵</button>
             </div>
 
         </div>
@@ -40,9 +42,7 @@
                 <span>HTML</span>
             </div>
 
-            <div class="codeContainerCode">
-                <textarea class="codepress html linenumbers-off" name="htmlCode" id="htmlCode"></textarea>
-            </div>
+            <div class="codeContainerCode" id="htmlCode" ></div>
 
         </div>
 
@@ -52,9 +52,7 @@
                 <span>CSS</span>
             </div>
 
-            <div class="codeContainerCode">
-                <textarea name="cssCode" id="cssCode"></textarea>
-            </div>
+            <div class="codeContainerCode" id="cssCode"></div>
 
         </div>
 
@@ -64,9 +62,7 @@
                 <span>JS</span>
             </div>
 
-            <div class="codeContainerCode">
-                <textarea name="jsCode" id="jsCode"></textarea>
-            </div>
+            <div class="codeContainerCode" id="jsCode"></div>
 
         </div>
 
@@ -77,7 +73,6 @@
             </div>
 
             <div class="codeContainerCode">
-                <!-- <iframe id="result"></iframe> -->
                 <div id="result"></div>
             </div>
 
@@ -86,5 +81,6 @@
     </div>
 
     <script src="script.js"></script>
+    <script src="jquery.color.js"></script>
 </body>
 </html>
