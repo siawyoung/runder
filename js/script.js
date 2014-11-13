@@ -76,7 +76,6 @@ $(".toggle").click(function() {
 
 down = {'13': null, '49': null, '50': null, 51: null, 52: null, 81: null, '82': null, '69': null};
 $(document).keydown(function(event) {
-    console.log(down);
     // Check if any editors are in focus
     var anyEditorsFocused = htmlEditor.isFocused() || cssEditor.isFocused() || jsEditor.isFocused();
 
